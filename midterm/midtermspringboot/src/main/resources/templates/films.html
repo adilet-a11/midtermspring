@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Film</title>
+    <link rel="stylesheet"type="text/css"th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container text-center">
+    <h1>Film List</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Film_name</th>
+                <th>Room_number</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <th:block th:each="room : ${room_regs}">
+
+                <tr>
+                    <td>[[${room.id}]]</td>
+                    <td th:align="left">[[${room.film.name}]]</td>
+                   <td> [[${room.room.room_number}]]
+                   <td>
+                        <a th:href="@{'/accouns/edit/'+${room.id}}">Buy ticket</a>
+                   </td>
+                   </td>
+                </tr>
+
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
